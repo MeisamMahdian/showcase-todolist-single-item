@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget
+    id="mendix.todolistitems.TodoListItems"
+    pluginWidget="true"
+    needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
+>
+    <name>Todo List Item</name>
+    <description>
+        A single todo item widget designed to be used inside data list placeholders for maximum flexibility
+    </description>
+    <icon />
+    <properties>
+        <propertyGroup caption="Todo Item Properties">
+            <property key="todoTextAttribute" type="attribute" required="true">
+                <caption>Todo Text</caption>
+                <description>Attribute containing the todo item text</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+            <property key="todoCompletedAttribute" type="attribute" required="true">
+                <caption>Completed Status</caption>
+                <description>Boolean attribute indicating if the todo is completed</description>
+                <attributeTypes>
+                    <attributeType name="Boolean" />
+                </attributeTypes>
+            </property>
+            <property key="todoPriorityAttribute" type="attribute" required="false">
+                <caption>Priority</caption>
+                <description>Attribute for todo priority (optional)</description>
+                <attributeTypes>
+                    <attributeType name="Enum" />
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+            <property key="todoDateAttribute" type="attribute" required="false">
+                <caption>Due Date</caption>
+                <description>Date attribute for todo due date (optional)</description>
+                <attributeTypes>
+                    <attributeType name="DateTime" />
+                </attributeTypes>
+            </property>
+            <property key="todoCreatedDateAttribute" type="attribute" required="false">
+                <caption>Created Date</caption>
+                <description>Date attribute for when the todo was created (optional)</description>
+                <attributeTypes>
+                    <attributeType name="DateTime" />
+                </attributeTypes>
+            </property>
+            <property key="todoChangedDateAttribute" type="attribute" required="false">
+                <caption>Changed Date</caption>
+                <description>Date attribute for when the todo was last modified (optional)</description>
+                <attributeTypes>
+                    <attributeType name="DateTime" />
+                </attributeTypes>
+            </property>
+            <property key="todoOwnerAttribute" type="attribute" required="false">
+                <caption>Owner</caption>
+                <description>Attribute for todo owner/creator (optional)</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Actions">
+            <property key="onToggleAction" type="action" required="false">
+                <caption>On Toggle Complete</caption>
+                <description>Action to execute when toggling todo completion status</description>
+            </property>
+            <property key="onEditAction" type="action" required="false">
+                <caption>On Edit Todo</caption>
+                <description>Action to execute when editing a todo item</description>
+            </property>
+            <property key="onDeleteAction" type="action" required="false">
+                <caption>On Delete Todo</caption>
+                <description>Action to execute when deleting a todo item</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Appearance">
+            <property key="showPriority" type="boolean" defaultValue="false">
+                <caption>Show Priority</caption>
+                <description>Display priority information for todo items</description>
+            </property>
+            <property key="showDueDate" type="boolean" defaultValue="false">
+                <caption>Show Due Date</caption>
+                <description>Display due date information for todo items</description>
+            </property>
+            <property key="showCreatedDate" type="boolean" defaultValue="false">
+                <caption>Show Created Date</caption>
+                <description>Display created date information for todo items</description>
+            </property>
+            <property key="showChangedDate" type="boolean" defaultValue="false">
+                <caption>Show Changed Date</caption>
+                <description>Display last modified date information for todo items</description>
+            </property>
+            <property key="showOwner" type="boolean" defaultValue="false">
+                <caption>Show Owner</caption>
+                <description>Display owner/creator information for todo items</description>
+            </property>
+            <property key="allowInlineEdit" type="boolean" defaultValue="true">
+                <caption>Allow Inline Editing</caption>
+                <description>Allow users to edit todo items inline</description>
+            </property>
+            <property key="compactView" type="boolean" defaultValue="false">
+                <caption>Compact View</caption>
+                <description>Use a more compact layout for the todo item</description>
+            </property>
+            <property key="showActions" type="boolean" defaultValue="true">
+                <caption>Show Action Buttons</caption>
+                <description>Display edit and delete action buttons</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
