@@ -18,8 +18,7 @@ export interface TodoListItemsContainerProps {
     todoCreatedDateAttribute?: EditableValue<Date>;
     todoChangedDateAttribute?: EditableValue<Date>;
     todoOwnerAttribute?: EditableValue<string>;
-    onToggleAction?: ActionValue;
-    onEditAction?: ActionValue;
+    onChangeAction?: ActionValue;
     onDeleteAction?: ActionValue;
     showPriority: boolean;
     showDueDate: boolean;
@@ -48,8 +47,7 @@ export interface TodoListItemsPreviewProps {
     todoCreatedDateAttribute: string;
     todoChangedDateAttribute: string;
     todoOwnerAttribute: string;
-    onToggleAction: {} | null;
-    onEditAction: {} | null;
+    onChangeAction: {} | null;
     onDeleteAction: {} | null;
     showPriority: boolean;
     showDueDate: boolean;

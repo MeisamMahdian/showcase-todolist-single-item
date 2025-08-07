@@ -67,7 +67,7 @@ export function TodoItemDate({
         if (type === "created" || type === "changed") {
             const diffTime = Math.abs(today.getTime() - date.getTime());
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
+
             if (diffDays === 1) {
                 return date.toDateString() === today.toDateString() ? "Today" : "Yesterday";
             } else if (diffDays < 7) {

@@ -68,13 +68,12 @@
             </property>
         </propertyGroup>
         <propertyGroup caption="Actions">
-            <property key="onToggleAction" type="action" required="false">
-                <caption>On Toggle Complete</caption>
-                <description>Action to execute when toggling todo completion status</description>
-            </property>
-            <property key="onEditAction" type="action" required="false">
-                <caption>On Edit Todo</caption>
-                <description>Action to execute when editing a todo item</description>
+            <property key="onChangeAction" type="action" required="false">
+                <caption>On Change</caption>
+                <description>
+                    Action to execute when any todo item property is changed (toggle completion, edit text, edit date,
+                    etc.)
+                </description>
             </property>
             <property key="onDeleteAction" type="action" required="false">
                 <caption>On Delete Todo</caption>

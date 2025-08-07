@@ -21,7 +21,7 @@ export function TodoItemMeta({
     children
 }: TodoItemMetaProps): ReactElement | null {
     const hasAnyMeta = showPriority || showDueDate || showCreatedDate || showChangedDate || showOwner;
-    
+
     if (!hasAnyMeta) {
         return null;
     }

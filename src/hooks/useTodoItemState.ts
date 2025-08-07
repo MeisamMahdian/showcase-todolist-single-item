@@ -34,8 +34,7 @@ interface UseTodoItemActionsProps {
   todoTextAttribute: EditableValue<string>;
   todoCompletedAttribute: EditableValue<boolean>;
   todoDateAttribute?: EditableValue<Date>;
-  onToggleAction?: ActionValue;
-  onEditAction?: ActionValue;
+  onChangeAction?: ActionValue;
   onDeleteAction?: ActionValue;
   allowInlineEdit: boolean;
   state: UseTodoItemStateReturn;
@@ -45,8 +44,7 @@ export function useTodoItemActions({
   todoTextAttribute,
   todoCompletedAttribute,
   todoDateAttribute,
-  onToggleAction,
-  onEditAction,
+  onChangeAction,
   onDeleteAction,
   allowInlineEdit,
   state
@@ -66,8 +64,8 @@ export function useTodoItemActions({
   const handleToggleComplete = () => {
     if (todoCompletedAttribute.status === "available") {
       todoCompletedAttribute.setValue(!isCompleted);
-      if (onToggleAction && onToggleAction.canExecute) {
-        onToggleAction.execute();
+      if (onChangeAction && onChangeAction.canExecute) {
+        onChangeAction.execute();
       }
     }
   };
@@ -76,8 +74,8 @@ export function useTodoItemActions({
     if (allowInlineEdit && todoTextAttribute.status === "available") {
       setEditText(todoText);
       setIsEditing(true);
-    } else if (onEditAction && onEditAction.canExecute) {
-      onEditAction.execute();
+    } else if (onChangeAction && onChangeAction.canExecute) {
+      onChangeAction.execute();
     }
   };
 
@@ -85,13 +83,11 @@ export function useTodoItemActions({
     if (todoTextAttribute.status === "available") {
       todoTextAttribute.setValue(editText.trim());
       setIsEditing(false);
-      if (onEditAction && onEditAction.canExecute) {
-        onEditAction.execute();
+      if (onChangeAction && onChangeAction.canExecute) {
+        onChangeAction.execute();
       }
     }
-  };
-
-  const handleCancelEdit = () => {
+  }; const handleCancelEdit = () => {
     setEditText(todoText);
     setIsEditing(false);
   };
@@ -114,13 +110,11 @@ export function useTodoItemActions({
         todoDateAttribute.setValue(undefined);
       }
       setIsEditingDate(false);
-      if (onEditAction && onEditAction.canExecute) {
-        onEditAction.execute();
+      if (onChangeAction && onChangeAction.canExecute) {
+        onChangeAction.execute();
       }
     }
-  };
-
-  const handleCancelDateEdit = () => {
+  }; const handleCancelDateEdit = () => {
     const currentDate = todoDateAttribute?.value;
     const dateString = currentDate ? currentDate.toISOString().split('T')[0] : "";
     setEditDate(dateString);
