@@ -14,9 +14,6 @@ export function preview(): ReactElement {
                         Sample Todo Item - Ready for Data List
                     </span>
                     <div className="todo-item__meta">
-                        <span className="todo-item__priority todo-item__priority--medium">
-                            Medium
-                        </span>
                         <span className="todo-item__date todo-item__date--due">
                             <span className="todo-item__date-label">Due:</span>{" "}
                             <span className="todo-item__date-value">Today</span>

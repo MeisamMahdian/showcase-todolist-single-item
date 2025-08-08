@@ -18,14 +18,12 @@ import { useTodoItemState, useTodoItemActions } from "./hooks/useTodoItemState";
 export function TodoListItems({
     todoTextAttribute,
     todoCompletedAttribute,
-    todoPriorityAttribute,
     todoDateAttribute,
     todoCreatedDateAttribute,
     todoChangedDateAttribute,
     todoOwnerAttribute,
     onChangeAction,
     onDeleteAction,
-    showPriority,
     showDueDate,
     showCreatedDate,
     showChangedDate,
@@ -56,7 +54,6 @@ export function TodoListItems({
 
     const isCompleted = todoCompletedAttribute.value || false;
     const todoText = todoTextAttribute.value || "";
-    const priority = todoPriorityAttribute?.value || "";
     const dueDate = todoDateAttribute?.value;
     const createdDate = todoCreatedDateAttribute?.value;
     const changedDate = todoChangedDateAttribute?.value;
@@ -92,12 +89,10 @@ export function TodoListItems({
                     />
 
                     <TodoItemMeta
-                        showPriority={showPriority}
                         showDueDate={showDueDate}
                         showCreatedDate={showCreatedDate}
                         showChangedDate={showChangedDate}
                         showOwner={showOwner}
-                        priority={priority}
                     >
                         {[
                             showDueDate && (

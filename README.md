@@ -1,18 +1,10 @@
 # Todo List Item Widget for Mendix
 
-A flexible and reusab#### Required Properties
+**[Note: This code has been generated mainly by copilot as an example. It has not passed quality controls to be used in
+production]**
 
--   **Todo Text**: Map to your Text string attribute
--   **Completed Status**: Map to your Completed boolean attribute
-
-#### Optional Properties
-
--   **Priority**: Map to your Priority enumeration (if using priorities)
--   **Due Date**: Map to your DueDate DateTime attribute (editable by user)
--   **Created Date**: Map to your CreatedDate DateTime attribute (read-only display)
--   **Changed Date**: Map to your ChangedDate DateTime attribute (read-only display)
--   **Owner**: Map to your Owner string attribute (read-only display) item widget designed to be used inside Mendix data
-    list placeholders. This approach provides maximum flexibility by separating data management from item rendering.
+A flexible and reusable todo list placeholders. This approach provides maximum flexibility by separating data management
+from item rendering.
 
 ## Architecture Approach
 
@@ -35,8 +27,7 @@ This widget follows Mendix best practices by:
 ### Advanced Features
 
 -   📅 **Due date display** - Shows due dates with smart formatting (Today, Tomorrow, etc.)
--   🏷️ **Priority badges** - Color-coded priority indicators (High, Medium, Low)
--   🎯 **Compact mode** - Space-efficient layout option
+-   **Compact mode** - Space-efficient layout option
 -   🔧 **Configurable UI** - Show/hide action buttons and metadata
 -   ⚡ **Overdue highlighting** - Visual indication for overdue items
 
@@ -57,8 +48,10 @@ Create a Todo entity with these attributes:
 Todo Entity:
 - Text (String) - The todo item text
 - Completed (Boolean) - Completion status
-- Priority (Enumeration, optional) - High/Medium/Low
 - DueDate (DateTime, optional) - Due date
+- CreatedDate (DateTime, optional) - Creation timestamp
+- ChangedDate (DateTime, optional) - Last modification timestamp
+- Owner (String, optional) - Owner/creator information
 ```
 
 ### 2. Page Structure

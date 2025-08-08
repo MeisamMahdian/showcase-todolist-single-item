@@ -30,14 +30,6 @@
                     <attributeType name="Boolean" />
                 </attributeTypes>
             </property>
-            <property key="todoPriorityAttribute" type="attribute" required="false">
-                <caption>Priority</caption>
-                <description>Attribute for todo priority (optional)</description>
-                <attributeTypes>
-                    <attributeType name="Enum" />
-                    <attributeType name="String" />
-                </attributeTypes>
-            </property>
             <property key="todoDateAttribute" type="attribute" required="false">
                 <caption>Due Date</caption>
                 <description>Date attribute for todo due date (optional)</description>
@@ -81,10 +73,6 @@
             </property>
         </propertyGroup>
         <propertyGroup caption="Appearance">
-            <property key="showPriority" type="boolean" defaultValue="false">
-                <caption>Show Priority</caption>
-                <description>Display priority information for todo items</description>
-            </property>
             <property key="showDueDate" type="boolean" defaultValue="false">
                 <caption>Show Due Date</caption>
                 <description>Display due date information for todo items</description>
