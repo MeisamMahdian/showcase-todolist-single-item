@@ -26,7 +26,13 @@ This widget follows Mendix best practices by:
 
 ### Advanced Features
 
--   📅 **Due date display** - Shows due dates with smart formatting (Today, Tomorrow, etc.)
+-   📅 **Smart date display** - Shows dates with intelligent relative formatting:
+    -   Recent: "Just now", "5m ago", "Today 2:30 PM"
+    -   Near future: "In 10m", "Tomorrow 9:00 AM"
+    -   This week: "Monday 10:15 AM", "Yesterday 3:45 PM"
+    -   This year: "March 15", "Jan 8"
+    -   Older: "Dec 25, 2023"
+-   **Rich tooltips** - Hover over dates for complete timestamp information
 -   **Compact mode** - Space-efficient layout option
 -   🔧 **Configurable UI** - Show/hide action buttons and metadata
 -   ⚡ **Overdue highlighting** - Visual indication for overdue items

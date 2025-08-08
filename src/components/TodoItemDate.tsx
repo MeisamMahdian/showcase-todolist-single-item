@@ -1,6 +1,7 @@
 import { ReactElement, createElement, useRef, useEffect } from "react";
 import { EditableValue } from "mendix";
 import classNames from "classnames";
+import { formatRelativeDate, formatTooltipDate } from "../utils/dateUtils";
 
 interface TodoItemDateProps {
     date?: Date;
@@ -45,37 +46,9 @@ export function TodoItemDate({
         }
     };
 
-    const formatDate = (date: Date, type: "due" | "created" | "changed") => {
-        const today = new Date();
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        const yesterday = new Date(today);
-        yesterday.setDate(yesterday.getDate() - 1);
-
-        // For due dates, show relative formatting
-        if (type === "due") {
-            if (date.toDateString() === today.toDateString()) {
-                return "Today";
-            } else if (date.toDateString() === tomorrow.toDateString()) {
-                return "Tomorrow";
-            } else if (date.toDateString() === yesterday.toDateString()) {
-                return "Yesterday";
-            }
-        }
-
-        // For created/changed dates, show relative time if recent
-        if (type === "created" || type === "changed") {
-            const diffTime = Math.abs(today.getTime() - date.getTime());
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-            if (diffDays === 1) {
-                return date.toDateString() === today.toDateString() ? "Today" : "Yesterday";
-            } else if (diffDays < 7) {
-                return `${diffDays} days ago`;
-            }
-        }
-
-        return date.toLocaleDateString();
+    const formatDate = (date: Date) => {
+        // Use the enhanced date formatter for all date types
+        return formatRelativeDate(date);
     };
 
     const getDateLabel = (type: "due" | "created" | "changed") => {
@@ -111,11 +84,11 @@ export function TodoItemDate({
                 "todo-item__date--clickable": isEditable && dateAttribute?.status === "available"
             })}
             onClick={isEditable ? onStartEdit : undefined}
-            title={isEditable && date ? `Click to edit ${dateType} date` : undefined}
+            title={date ? formatTooltipDate(date) : (isEditable ? `Click to set ${dateType} date` : undefined)}
         >
             <span className="todo-item__date-label">{getDateLabel(dateType)}:</span>{" "}
             <span className="todo-item__date-value">
-                {date ? formatDate(date, dateType) : getEmptyText(dateType)}
+                {date ? formatDate(date) : getEmptyText(dateType)}
             </span>
         </span>
     );

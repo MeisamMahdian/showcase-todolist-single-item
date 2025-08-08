@@ -1,4 +1,5 @@
 import { ReactElement, createElement } from "react";
+import { formatUserInfo } from "../utils/dateUtils";
 
 interface TodoItemOwnerProps {
     owner?: string;
@@ -14,7 +15,7 @@ export function TodoItemOwner({
     }
 
     return (
-        <span className="todo-item__owner">
+        <span className="todo-item__owner" title={`Created${formatUserInfo(owner)}`}>
             {showLabel && <span className="todo-item__owner-label">Owner:</span>}{" "}
             <span className="todo-item__owner-value">{owner}</span>
         </span>
